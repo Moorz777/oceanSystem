@@ -1,30 +1,27 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const developers = ["410778583682777098","316324088865882142"];
 const prefix = "#";
 const em = client.emojis.get("520053312498958366");
 
 
 client.on("message", async message => {
     if(!message.guild) return;
-        if(!developers.has(message.author.id)) return;
-            var command = message.content.split(" ")[0];
-                command = command.slice(prefix.length);
+        if(message.author.id !== "316324088865882142" || message.author.id !== "410778583682777098") return;
                     var args = message.content.split(" ").slice(1).join(" ");
                         if(!args) return;
-                            if(command == "stream") {
+                            if(message.content == "#stream") {
                                 client.user.setGame(args, "https://twitch.tv/9ivv");
                                     message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
-                            if(command == "watch") {
+                            if(message.content == "#watch") {
                                 client.user.setActivity(args, { type: "WATCHING" });
                                 message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
-                            if(command == "listen") {
+                            if(message.content == "#listen") {
                                 client.user.setActivity(args, { type: "LISTENING" });
                                 message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
-                            if(command == "play") {
+                            if(message.content == "#play") {
                                 client.user.setGame(args);
                                 message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
