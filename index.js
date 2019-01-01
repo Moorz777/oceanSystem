@@ -14,19 +14,19 @@ client.on("message", async message => {
                         if(!args) return;
                             if(command == "stream") {
                                 client.user.setGame(args, "https://twitch.tv/9ivv");
-                                    message.channel.send(`**${em} : ${args}**`).then(m => m.delete(5000));
+                                    message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
                             if(command == "watch") {
                                 client.user.setActivity(args, { type: "WATCHING" });
-                                message.channel.send(`**${em} : ${args}**`).then(m => m.delete(5000));
+                                message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
                             if(command == "listen") {
                                 client.user.setActivity(args, { type: "LISTENING" });
-                                message.channel.send(`**${em} : ${args}**`).then(m => m.delete(5000));
+                                message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
                             if(command == "play") {
                                 client.user.setGame(args);
-                                message.channel.send(`**${em} : ${args}**`).then(m => m.delete(5000));
+                                message.channel.send(`** : ${args}**`).then(m => m.delete(5000));
                             }
 });
 
@@ -64,7 +64,7 @@ client.on("message", async message => {
         if(message.content.startsWith(prefix + "close")) {
             if(!message.guild.member(message.author.id).hasPermission("ADMINISTRATOR")) return;
                 if(!message.channel.name.includes("ticket")) return;
-                    message.channel.send(`${em} | Are sure you want to close this ticket? vote with *yes* or *no*.`).then(msg => {
+                    message.channel.send(` Are sure you want to close this ticket? vote with *yes* or *no*.`).then(msg => {
                         var filter = m => m.author.id == message.author.id;
                             message.channel.awaitMessages(filter, {
                                 max: 1,
