@@ -64,7 +64,7 @@ client.on("message", async message => {
         if(message.content.startsWith(prefix + "close")) {
             if(!message.guild.member(message.author.id).hasPermission("ADMINISTRATOR")) return;
                 if(!message.channel.name.includes("ticket")) return;
-                    message.channel.send("**Are sure you want to close this ticket? vote with *yes* or *no*.").then(msg => {
+                    message.channel.send(`${em} | Are sure you want to close this ticket? vote with *yes* or *no*.`).then(msg => {
                         var filter = m => m.author.id == message.author.id;
                             message.channel.awaitMessages(filter, {
                                 max: 1,
