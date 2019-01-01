@@ -52,8 +52,12 @@ client.on("message", async message => {
                                 ticket.overwritePermissions(holder.id, {
                                     READ_MESSAGES:true
                                 });
+                                var te = new Discord.RichEmbed()
+                                .setTitle("Welcome To Ocean Tickets.")
+                                .setColor("BLACK").setDescription("**.يرجى منك تزويدنا بكل المعلومات الازمة الخاصة بمشكلتك**")
+                                .setFooter(`${message.author.username} | Ticket.`, message.author.displayAvatarURL);
+                                ticket.sendEmbed(te);
 
-                                ticket.sendEmbed(new Discord.RichEmbed().setTitle("Welcome To Ocean Tickets.").setColor("BLACK").setDescription("**.يرجى منك تزويدنا بكل المعلومات الازمة الخاصة بمشكلتك**").setFooter(`${message.author.username} | Ticket.`, message.author.displayAvatarURL));
                         });
                 }
         }
