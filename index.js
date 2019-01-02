@@ -33,7 +33,7 @@ client.on('message',async message => {
 		console.log(current);
 		let openReason = "";
 		current++;
-    	message.guild.createChannel(`rgticket-${current}`, 'text').then(c => {
+    	message.guild.createChannel(`octicket-${current}`, 'text').then(c => {
 		tchannels.push(c.id);
 		c.setParent(category);
 		message.channel.send(`${emojis.yes}, **تم عمل التكت.**`);
